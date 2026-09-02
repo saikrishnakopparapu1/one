@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NexusShop · modern e‑commerce</title>
+  <title>NexusShop · dark neon</title>
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ----- reset & variables ----- */
+    /* ----- reset & variables (DARK NEON) ----- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #f6f9fe;
-      --primary: #0b1e33;
-      --accent: #00b4d8;
-      --accent-glow: rgba(0, 180, 216, 0.25);
-      --muted: #5b6f82;
-      --card: #ffffff;
-      --surface: #edf3f9;
+      --bg: #0b0e17;
+      --primary: #eef3ff;
+      --accent: #f72585;
+      --accent-glow: rgba(247, 37, 133, 0.35);
+      --muted: #8892a8;
+      --card: #141a26;
+      --surface: #1e2638;
       --radius: 24px;
-      --shadow-sm: 0 12px 30px rgba(10, 37, 64, 0.05);
-      --shadow-hover: 0 28px 48px rgba(10, 37, 64, 0.09);
+      --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.6);
+      --shadow-hover: 0 28px 48px rgba(0, 0, 0, 0.8);
       --transition: 0.25s cubic-bezier(0.2, 0, 0, 1);
+      --border-glow: 1px solid rgba(247, 37, 133, 0.2);
     }
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -38,15 +39,15 @@
       padding: 0 24px;
     }
 
-    /* ----- header (glass) ----- */
+    /* ----- header (dark glass) ----- */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(11, 14, 23, 0.8);
       backdrop-filter: blur(18px) saturate(180%);
       -webkit-backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(10, 37, 64, 0.04);
+      border-bottom: 1px solid rgba(247, 37, 133, 0.15);
     }
     .header-inner {
       display: flex;
@@ -64,8 +65,9 @@
       font-weight: 700;
       font-size: 24px;
       letter-spacing: -0.3px;
+      color: #fff;
     }
-    .brand .accent { color: var(--accent); }
+    .brand .accent { color: var(--accent); text-shadow: 0 0 12px var(--accent-glow); }
 
     nav.main-nav ul {
       display: flex;
@@ -87,6 +89,7 @@
     nav.main-nav li a:hover {
       background: var(--surface);
       color: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
     }
 
     .search-wrap {
@@ -101,7 +104,7 @@
     }
     .search-wrap:focus-within {
       border-color: var(--accent);
-      background: white;
+      background: #141a26;
       box-shadow: 0 0 0 4px var(--accent-glow);
     }
     .search-wrap input {
@@ -111,21 +114,25 @@
       width: 100%;
       font-size: 14px;
       padding: 8px 0;
+      color: #fff;
     }
+    .search-wrap input::placeholder { color: var(--muted); }
     .search-wrap button {
-      background: var(--primary);
+      background: var(--accent);
       border: 0;
-      color: white;
+      color: #0b0e17;
       width: 40px;
       height: 40px;
       border-radius: 40px;
       cursor: pointer;
       transition: var(--transition);
       font-size: 15px;
+      font-weight: 700;
     }
     .search-wrap button:hover {
-      background: var(--accent);
-      color: #042233;
+      background: #fff;
+      color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
     }
 
     .header-actions {
@@ -151,6 +158,7 @@
     .icon-btn:hover {
       background: var(--surface);
       color: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
     }
     .cart {
       position: relative;
@@ -163,7 +171,7 @@
       top: -2px;
       right: -2px;
       background: var(--accent);
-      color: #0a1e2f;
+      color: #0b0e17;
       font-size: 11px;
       font-weight: 700;
       width: 22px;
@@ -171,7 +179,7 @@
       border-radius: 30px;
       display: inline-grid;
       place-items: center;
-      border: 2px solid white;
+      border: 2px solid #0b0e17;
     }
     .mobile-toggle {
       display: none;
@@ -179,12 +187,13 @@
       border: 0;
       font-size: 1.6rem;
       cursor: pointer;
+      color: var(--primary);
       padding: 4px 8px;
     }
     #mobileMenu {
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(11, 14, 23, 0.96);
       backdrop-filter: blur(8px);
-      border-top: 1px solid rgba(10, 37, 64, 0.04);
+      border-top: 1px solid rgba(247, 37, 133, 0.15);
     }
     #mobileMenu ul {
       list-style: none;
@@ -199,25 +208,27 @@
       font-weight: 500;
       display: block;
       transition: var(--transition);
+      color: var(--primary);
     }
     #mobileMenu ul a:hover {
       background: var(--surface);
       color: var(--accent);
     }
 
-    /* ----- hero (modern) ----- */
+    /* ----- hero (neon) ----- */
     .hero {
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(145deg, rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.3)),
+      background: linear-gradient(145deg, rgba(247, 37, 133, 0.25), rgba(11, 14, 23, 0.9)),
         url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       color: white;
       min-height: 400px;
       padding: 60px 20px;
       border-radius: 0 0 48px 48px;
       margin-bottom: 16px;
+      border-bottom: 2px solid var(--accent);
     }
     .hero h1 {
       font-family: 'Poppins', sans-serif;
@@ -225,12 +236,14 @@
       letter-spacing: -0.02em;
       margin-bottom: 14px;
       line-height: 1.1;
+      text-shadow: 0 0 30px var(--accent-glow);
     }
     .hero p {
-      opacity: 0.92;
+      opacity: 0.9;
       max-width: 700px;
       margin: 0 auto 28px;
       font-size: 1.2rem;
+      color: #cfd9f0;
     }
     .btn-group {
       display: flex;
@@ -250,25 +263,26 @@
       cursor: pointer;
       transition: var(--transition);
       background: white;
-      color: var(--primary);
+      color: #0b0e17;
     }
     .btn-primary {
       background: var(--accent);
-      color: #042233;
-      box-shadow: 0 8px 24px rgba(0, 180, 216, 0.35);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(247, 37, 133, 0.5);
     }
     .btn-primary:hover {
       transform: scale(1.02);
-      box-shadow: 0 12px 32px rgba(0, 180, 216, 0.45);
+      box-shadow: 0 12px 40px rgba(247, 37, 133, 0.7);
     }
     .btn-ghost {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(247, 37, 133, 0.4);
       color: white;
     }
     .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(247, 37, 133, 0.2);
+      border-color: var(--accent);
     }
 
     /* sections */
@@ -279,6 +293,7 @@
       font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
       letter-spacing: -0.02em;
+      color: #fff;
     }
     .section-sub {
       color: var(--muted);
@@ -303,19 +318,22 @@
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
       cursor: default;
-      border: 1px solid transparent;
+      border: 1px solid rgba(247, 37, 133, 0.1);
     }
     .cat-card:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-hover);
       border-color: var(--accent);
+      box-shadow: 0 0 30px var(--accent-glow);
     }
     .cat-card .icon {
       font-size: 2.4rem;
       color: var(--accent);
       margin-bottom: 10px;
+      filter: drop-shadow(0 0 8px var(--accent-glow));
     }
-    .cat-card h4 { font-weight: 600; font-size: 1rem; }
+    .cat-card h4 { font-weight: 600; font-size: 1rem; color: #fff; }
+    .cat-card .muted { color: var(--muted); }
 
     /* products */
     .products-grid {
@@ -331,16 +349,17 @@
       transition: var(--transition);
       display: flex;
       flex-direction: column;
-      border: 1px solid rgba(10, 37, 64, 0.02);
+      border: 1px solid rgba(247, 37, 133, 0.08);
     }
     .product-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
     }
     .product-card .img-wrap {
       position: relative;
       overflow: hidden;
-      background: #f2f6fc;
+      background: #10131f;
     }
     .product-card .img-wrap img {
       width: 100%;
@@ -354,11 +373,12 @@
       top: 14px;
       left: 14px;
       background: var(--accent);
-      color: #042233;
+      color: #fff;
       padding: 4px 16px;
       border-radius: 40px;
       font-weight: 700;
       font-size: 0.75rem;
+      box-shadow: 0 0 20px var(--accent-glow);
     }
     .product-card .body {
       padding: 16px 16px 10px;
@@ -367,6 +387,7 @@
     .product-card .body h5 {
       font-weight: 600;
       font-size: 1rem;
+      color: #fff;
       margin-bottom: 4px;
     }
     .product-card .body .category-tag {
@@ -383,6 +404,7 @@
     .price-current {
       font-weight: 700;
       font-size: 1.2rem;
+      color: var(--accent);
     }
     .price-old {
       color: var(--muted);
@@ -401,8 +423,8 @@
     }
     .add-btn {
       flex: 1;
-      background: var(--primary);
-      color: white;
+      background: var(--accent);
+      color: #fff;
       border: 0;
       padding: 12px;
       border-radius: 40px;
@@ -413,10 +435,12 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      box-shadow: 0 0 16px rgba(247, 37, 133, 0.2);
     }
     .add-btn:hover {
-      background: var(--accent);
-      color: #042233;
+      background: #fff;
+      color: var(--accent);
+      box-shadow: 0 0 30px var(--accent-glow);
     }
     .wish-btn {
       background: var(--surface);
@@ -426,10 +450,12 @@
       cursor: pointer;
       transition: var(--transition);
       font-size: 1.1rem;
+      color: var(--primary);
     }
     .wish-btn:hover {
-      background: #ffe6e6;
-      color: #d14545;
+      background: #2a1a2a;
+      color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
     }
 
     /* deal */
@@ -441,6 +467,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
       align-items: stretch;
+      border: 1px solid rgba(247, 37, 133, 0.15);
     }
     .deal-card img {
       width: 45%;
@@ -457,6 +484,7 @@
     .deal-content h3 {
       font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
+      color: #fff;
     }
     .timer {
       display: flex;
@@ -464,12 +492,13 @@
       margin: 18px 0;
     }
     .time-box {
-      background: var(--primary);
-      color: white;
+      background: var(--accent);
+      color: #0b0e17;
       padding: 10px 12px;
       border-radius: 16px;
       min-width: 72px;
       text-align: center;
+      box-shadow: 0 0 24px var(--accent-glow);
     }
     .time-box div:first-child {
       font-size: 1.6rem;
@@ -499,7 +528,10 @@
       box-shadow: var(--shadow-sm);
       scroll-snap-align: start;
       flex-shrink: 0;
+      border: 1px solid rgba(247, 37, 133, 0.08);
     }
+    .testimonial-card .rating { margin-bottom: 8px; }
+    .testimonial-card p { color: #cfd9f0; }
     .testimonial-card .avatar {
       display: flex;
       align-items: center;
@@ -511,15 +543,18 @@
       height: 44px;
       border-radius: 40px;
       object-fit: cover;
+      border: 2px solid var(--accent);
     }
 
     /* newsletter */
     .newsletter-box {
-      background: var(--primary);
+      background: var(--card);
       color: white;
       border-radius: var(--radius);
       padding: 48px 32px;
       text-align: center;
+      border: 1px solid rgba(247, 37, 133, 0.2);
+      box-shadow: 0 0 40px rgba(247, 37, 133, 0.05);
     }
     .newsletter-box input {
       padding: 14px 20px;
@@ -529,19 +564,29 @@
       max-width: 100%;
       font-size: 1rem;
       outline: none;
+      background: var(--surface);
+      color: #fff;
     }
+    .newsletter-box input::placeholder { color: var(--muted); }
     .newsletter-box .btn {
       background: var(--accent);
-      color: #042233;
+      color: #fff;
       font-weight: 700;
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+    .newsletter-box .btn:hover {
+      background: #fff;
+      color: var(--accent);
     }
 
     /* footer */
     footer {
       padding: 48px 0 24px;
-      border-top: 1px solid rgba(10, 37, 64, 0.04);
+      border-top: 1px solid rgba(247, 37, 133, 0.1);
       color: var(--muted);
     }
+    footer .icon-btn { color: var(--muted); }
+    footer .icon-btn:hover { color: var(--accent); }
 
     /* responsive */
     @media (max-width: 1100px) {
@@ -617,7 +662,7 @@
   <!-- hero -->
   <section class="hero">
     <div class="container">
-      <h1>New Winter Collection<br />Premium Picks</h1>
+      <h1>New Winter Collection<br />Neon Drops</h1>
       <p>Discover the latest in fashion, tech, and accessories — curated for you. Limited deals & free shipping.</p>
       <div class="btn-group">
         <button class="btn btn-primary" id="shopNow">Shop Now <i class="fas fa-arrow-right"></i></button>
@@ -714,8 +759,8 @@
 <footer>
   <div class="container" style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;">
     <div>
-      <div style="font-weight:700;font-size:1.2rem;">NexusShop</div>
-      <p class="muted" style="max-width:280px;margin-top:6px;">Modern e‑commerce demo built with care.</p>
+      <div style="font-weight:700;font-size:1.2rem;color:#fff;">NexusShop</div>
+      <p class="muted" style="max-width:280px;margin-top:6px;">Modern e‑commerce demo built with neon vibes.</p>
       <div style="display:flex;gap:12px;margin-top:12px;">
         <a class="icon-btn" href="#"><i class="fab fa-facebook"></i></a>
         <a class="icon-btn" href="#"><i class="fab fa-twitter"></i></a>
@@ -723,8 +768,8 @@
       </div>
     </div>
     <div style="display:flex;gap:40px;flex-wrap:wrap;">
-      <div><div style="font-weight:600;">Company</div><div class="muted" style="line-height:1.9;">About<br />Careers<br />Press</div></div>
-      <div><div style="font-weight:600;">Support</div><div class="muted" style="line-height:1.9;">Help Center<br />Shipping<br />Contact</div></div>
+      <div><div style="font-weight:600;color:#fff;">Company</div><div class="muted" style="line-height:1.9;">About<br />Careers<br />Press</div></div>
+      <div><div style="font-weight:600;color:#fff;">Support</div><div class="muted" style="line-height:1.9;">Help Center<br />Shipping<br />Contact</div></div>
     </div>
   </div>
   <div style="text-align:center;margin-top:28px;font-size:0.85rem;color:var(--muted);">© <span id="year"></span> NexusShop. All rights reserved.</div>
@@ -763,77 +808,3 @@
   let cartCount = 0;
   const cartCountEl = document.getElementById('cartCount');
   const searchInput = document.getElementById('searchInput');
-  const productsGrid = document.getElementById('productsGrid');
-  const categoriesGrid = document.getElementById('categoriesGrid');
-
-  // render
-  function renderCategories() {
-    categoriesGrid.innerHTML = '';
-    CATEGORIES.forEach(c => {
-      const div = document.createElement('div');
-      div.className = 'cat-card';
-      div.innerHTML = `
-        <div class="icon"><i class="fas ${c.icon}"></i></div>
-        <h4>${c.name}</h4>
-        <div class="muted" style="font-size:0.8rem;">Explore</div>
-      `;
-      div.addEventListener('click', () => {
-        searchInput.value = c.name;
-        filterProducts(c.name);
-        document.getElementById('prod-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-      categoriesGrid.appendChild(div);
-    });
-  }
-
-  function renderProducts(list) {
-    productsGrid.innerHTML = '';
-    list.forEach(p => {
-      const card = document.createElement('article');
-      card.className = 'product-card';
-      card.innerHTML = `
-        <div class="img-wrap">
-          <img src="${p.img}" alt="${p.title}" loading="lazy" />
-          ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
-        </div>
-        <div class="body">
-          <h5>${p.title}</h5>
-          <div class="category-tag">${p.category}</div>
-          <div class="price-row">
-            <div>
-              <span class="price-current">$${p.price.toLocaleString()}</span>
-              ${p.oldPrice ? `<span class="price-old">$${p.oldPrice.toLocaleString()}</span>` : ''}
-            </div>
-            <span class="rating">${'★'.repeat(Math.round(p.rating))} <span style="color:var(--muted);font-size:0.75rem;">(${p.reviews})</span></span>
-          </div>
-        </div>
-        <div class="actions">
-          <button class="add-btn" data-id="${p.id}"><i class="fas fa-cart-plus"></i> Add</button>
-          <button class="wish-btn" aria-label="wishlist"><i class="far fa-heart"></i></button>
-        </div>
-      `;
-      productsGrid.appendChild(card);
-    });
-    document.querySelectorAll('.add-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const id = Number(btn.dataset.id);
-        addToCart(id);
-      });
-    });
-  }
-
-  function addToCart(productId) {
-    const p = PRODUCTS.find(x => x.id === productId);
-    if (!p) return;
-    cartCount++;
-    cartCountEl.textContent = cartCount;
-    const btn = document.querySelector(`.add-btn[data-id="${productId}"]`);
-    if (btn) {
-      const orig = btn.innerHTML;
-      btn.innerHTML = 'Added ✓';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.disabled = false;
-      }, 1200);
-    }
